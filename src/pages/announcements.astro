@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+const items = (await getCollection('announcements'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Announcements</title></head>
+  <body style="font-family: system-ui; max-width: 42rem; margin: 2rem auto; padding: 0 1rem;">
+    <h1>Announcements</h1>
+    {items.map((item) => (
+      <article style="margin-bottom: 1.5rem;">
+        <h2>{item.data.title}</h2>
+        <p style="color: #666; font-size: 0.9rem;">{item.data.pubDate.toDateString()}</p>
+        <p>{item.data.summary}</p>
+      </article>
+    ))}
+  </body>
+</html>

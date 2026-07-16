@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+const items = (await getCollection('events'))
+  .sort((a, b) => a.data.eventDate.valueOf() - b.data.eventDate.valueOf());
+---
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Events</title></head>
+  <body style="font-family: system-ui; max-width: 42rem; margin: 2rem auto; padding: 0 1rem;">
+    <h1>Upcoming Events</h1>
+    {items.map((item) => (
+      <article style="margin-bottom: 1.5rem;">
+        <h2>{item.data.title}</h2>
+        <p style="color: #666; font-size: 0.9rem;">
+          {item.data.eventDate.toDateString()}{item.data.location ? ` — ${item.data.location}` : ''}
+        </p>
+        <p>{item.data.description}</p>
+        {item.data.registrationUrl && (
+          <a href={item.data.registrationUrl}>Register &rarr;</a>
+        )}
+      </article>
+    ))}
+  </body>
+</html>
