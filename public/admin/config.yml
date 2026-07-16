@@ -4,8 +4,8 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.andrew-3ef.workers.dev
 
-media_folder: "public/uploads"
-public_folder: "/uploads"
+media_folder: "src/assets/uploads"
+public_folder: "/src/assets/uploads"
 
 collections:
   - name: blog
