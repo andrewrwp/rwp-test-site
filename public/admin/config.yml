@@ -1,0 +1,42 @@
+backend:
+  name: github
+  repo: andrewrwp/rwp-test-site
+  branch: main
+  base_url: https://sveltia-cms-auth.andrew-3ef.workers.dev
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: blog
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: announcements
+    label: "Announcements"
+    folder: "src/content/announcements"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: events
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "eventDate", widget: "datetime" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Registration Link (Smartsheet)", name: "registrationUrl", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
