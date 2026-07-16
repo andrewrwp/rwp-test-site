@@ -1,6 +1,6 @@
 ---
 title: Careers for All (test)
-eventDate: 2027-03-17T11:32
+eventDate: 2026-07-16T11:44
 location: Medford, OR
 description: This is a test event
 registrationUrl: ''
